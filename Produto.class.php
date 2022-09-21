@@ -2,9 +2,28 @@
 
 
 class Produto{
-    public $descricao;
+    private $descricao;
     private $valor;
-    protected $estoque = 0;
+    protected $estoque;
+
+
+    /**
+     * Esta classe gerencia os produtos do meu sistema
+     * @param String $descricao nome do produto
+     * @param float $valor valor inicial do meu produto;
+     * @param int $estoque quantidade inicial do meu estoque;
+     */
+    function __construct($descricao, $valor, $estoque = 0)
+    {
+        $this->descricao = $descricao;
+        $this->valor = $valor;
+        $this->estoque = $estoque;
+    }
+
+    function __destruct()
+    {
+        echo "<script>console.log('apagou o objeto {$this->descricao}')</script>";
+    }
 
     public function setEstoque($quantidade){
         $this->estoque +=$quantidade;
@@ -47,5 +66,11 @@ class Produto{
 	function setValor($valor): self {
 		$this->valor = $valor;
 		return $this;
+	}
+	/**
+	 * @return mixed
+	 */
+	function getDescricao() {
+		return $this->descricao;
 	}
 }
