@@ -1,6 +1,9 @@
 <?php
 
 require_once 'Produto.class.php';
+require_once 'Cliente.class.php';
+require_once 'Endereco.class.php';
+require_once 'Venda.class.php';
 
 class Pagina
 {
@@ -21,6 +24,14 @@ class Pagina
         $this->printProduto($produto2);
     }
 
+
+    public function venda(){
+        $endereco = new Endereco('rua 1', '7777777', '12', 'centro');
+        $pessoa = new Cliente('Joaquim', '11111111', '111111',$endereco);
+        $venda = new Venda($pessoa);
+        print_r($venda);
+    }
+
     public function printProduto(Produto $p){
         echo "<h3>{$p->getDescricao()}</h3>";
         echo "<h5>Valor: {$p->getValor()}</h5>";
@@ -30,4 +41,4 @@ class Pagina
 
 
 $pagina = new Pagina();
-$pagina->render();
+$pagina->venda();

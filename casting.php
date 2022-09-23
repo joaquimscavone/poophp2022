@@ -21,4 +21,4 @@ $obj3 = (object)$_GET;
 echo '<pre>';
 print_r($obj);
 print_r($obj2);
-print_r($obj3->nome);
+print_r($obj3);
