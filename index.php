@@ -33,8 +33,11 @@ class Pagina
     public function venda(){
         $endereco = new Endereco('rua 1', '7777777', '12', 'centro');
         $pessoa = new Cliente('Joaquim', '11111111', '111111',$endereco);
-        $venda = new Venda($pessoa);
-        print_r($venda);
+        $venda = new Venda();
+        $produto = new Produto('Caixa Chocolate Nestle',13,50);
+        $venda->addItem($produto);
+        $venda->addItem($produto);
+        $this->printPre($venda);
     }
 
     public function printProduto(Produto $p){
@@ -55,4 +58,4 @@ class Pagina
 
 
 $pagina = new Pagina();
-$pagina->render();
+$pagina->venda();
