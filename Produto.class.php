@@ -1,10 +1,12 @@
 <?php
 
+require_once 'Caracteristica.class.php';
 
 class Produto{
     private $descricao;
     private $valor;
     protected $estoque;
+    protected array $caracteristicas;
 
 
     /**
@@ -18,6 +20,7 @@ class Produto{
         $this->descricao = $descricao;
         $this->valor = $valor;
         $this->estoque = $estoque;
+        $this->caracteristicas = [];
     }
 
     function __destruct()
@@ -73,4 +76,14 @@ class Produto{
 	function getDescricao() {
 		return $this->descricao;
 	}
+	/**
+	 * @return Caracteristica[]
+	 */
+	function getCaracteristicas(): array {
+		return $this->caracteristicas;
+	}
+
+    function addCaracteristica($nome, $valor){
+        $this->caracteristicas[] = new Caracteristica($nome, $valor);
+    }
 }
