@@ -7,10 +7,7 @@ class Funcionario extends Pessoa{
 
 	public function __construct($nome, $cpf, $rg, $salario ,Endereco $endereco = null)
 	{
-		$this->nome = $nome;
-		$this->cpf = $cpf;
-		$this->rg = $rg;
-		$this->endereco = $endereco;
+		parent::__construct($nome, $cpf, $rg, $endereco);
 		$this->salario = $salario;
 	}
 

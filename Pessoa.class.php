@@ -2,7 +2,7 @@
 
 require_once "Endereco.class.php";
 class Pessoa{
-    protected $nome;
+    private $nome;
 
     protected $cpf;
 
