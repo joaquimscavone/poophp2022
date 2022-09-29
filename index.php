@@ -4,6 +4,7 @@ require_once 'Produto.class.php';
 require_once 'Cliente.class.php';
 require_once 'Endereco.class.php';
 require_once 'Venda.class.php';
+require_once 'Funcionario.class.php';
 
 class Pagina
 {
@@ -32,12 +33,12 @@ class Pagina
 
     public function venda(){
         $endereco = new Endereco('rua 1', '7777777', '12', 'centro');
-        $pessoa = new Cliente('Joaquim', '11111111', '111111',$endereco);
+        $f1 = new Funcionario('Joaquim', '11111111', '111111',5000,$endereco);
         $venda = new Venda();
         $produto = new Produto('Caixa Chocolate Nestle',13,50);
         $venda->addItem($produto);
         $venda->addItem($produto);
-        $this->printPre($venda);
+        $this->printPre($f1);
     }
 
     public function printProduto(Produto $p){

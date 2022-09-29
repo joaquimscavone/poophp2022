@@ -1,38 +1,22 @@
 <?php
 
-require_once "Endereco.class.php";
-class Cliente{
-    protected $nome;
-
-    protected $cpf;
-
-    protected $rg;
-
-    protected Endereco $endereco;
-
-    public function __construct($nome, $cpf, $rg, Endereco $endereco = null)
-    {
-        $this->nome = $nome;
-        $this->cpf = $cpf;
-        $this->rg = $rg;
-        $this->endereco = $endereco;
-    }
-
-    
-
+require_once "Pessoa.class.php";
+class Cliente extends Pessoa{
+	protected $codcliente;
+	
 	/**
-	 * @return Endereco
+	 * @return mixed
 	 */
-	function getEndereco(): Endereco {
-		return $this->endereco;
+	function getCodcliente() {
+		return $this->codcliente;
 	}
 	
 	/**
-	 * @param Endereco $endereco 
+	 * @param mixed $codcliente 
 	 * @return Cliente
 	 */
-	function setEndereco(Endereco $endereco): self {
-		$this->endereco = $endereco;
+	function setCodcliente($codcliente): self {
+		$this->codcliente = $codcliente;
 		return $this;
 	}
 }
