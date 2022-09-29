@@ -1,17 +1,18 @@
 <?php
 
 
-require_once "Pessoa.class.php";
-require_once "Cliente.class.php";
-require_once "Funcionario.class.php";
-require_once "Produto.class.php";
+require_once "ContaCorrente.class.php";
 
-$var = new Cliente('Joaquim', '1', '1', new Endereco('av das carmelhas', '1111111', '11', 'centro')    );
+
+$minhaconta = new ContaCorrente('0001', '00001',1000);
+$minhaconta->depositar(200)
+            ->saque(50)
+            ->saque(500)
+            ->saque(649)
+            ->depositar(5000)
+            ->saque(2);
+
 
 echo '<pre>';
-print_r($var->getNome());
-testePessoa($var);
 
-function testePessoa(Pessoa $p){
-
-}
+print_r("Saldo:".$minhaconta->getSaldo());
