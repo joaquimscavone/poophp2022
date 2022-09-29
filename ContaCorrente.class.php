@@ -11,7 +11,7 @@ class ContaCorrente extends Conta{
     }
 
 
-    public function saque(float $valor){
+    final public function saque(float $valor){
         if($valor<=0){
             echo 'Valor Inválido';
         }else if($valor<$this->saldo+$this->limite){
@@ -21,6 +21,11 @@ class ContaCorrente extends Conta{
             echo 'Saldo insuficiente<br>';
         }
         return $this;
+    }
+
+    public function getTipoConta()
+    {
+        return 'Conta Corrente';
     }
 
    

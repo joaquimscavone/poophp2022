@@ -2,17 +2,22 @@
 
 
 require_once "ContaCorrente.class.php";
+require_once "ContaPoupanca.class.php";
 
 
-$minhaconta = new ContaCorrente('0001', '00001',1000);
-$minhaconta->depositar(200)
-            ->saque(50)
-            ->saque(500)
-            ->saque(649)
-            ->depositar(5000)
-            ->saque(2);
+$minhaconta = new ContaPoupanca('0001', '00001',0.5);
+$valordepositado = 0;
+for ($mes = 1; $mes <= 120; $mes++){
+    $minhaconta->depositar(200);
+    $minhaconta->calcularRendiemntos();
+    $valordepositado += 200;
+}
+
 
 
 echo '<pre>';
 
-print_r("Saldo:".$minhaconta->getSaldo());
+print_r(["Saldo:"=>$minhaconta->getSaldo()
+    , 'Valor depositado'=>$valordepositado,
+    'Juros'=>$minhaconta->getSaldo()-$valordepositado
+]);

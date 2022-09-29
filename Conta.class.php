@@ -1,7 +1,7 @@
 <?php
 
 
-class Conta{
+abstract class Conta{
     protected $agencia;
 
     protected $numero;
@@ -53,4 +53,6 @@ class Conta{
         }
         return $this;
     }
+
+    abstract public function getTipoConta();
 }
