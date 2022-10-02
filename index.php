@@ -6,6 +6,7 @@ require_once 'Endereco.class.php';
 require_once 'Venda.class.php';
 require_once 'Funcionario.class.php';
 
+
 class Pagina
 {
     public function render()
@@ -59,4 +60,5 @@ class Pagina
 
 
 $pagina = new Pagina();
-$pagina->venda();
+
+var_dump(Pessoa::validarCPF('20842099000'));
