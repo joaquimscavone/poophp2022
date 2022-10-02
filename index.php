@@ -5,6 +5,8 @@ require_once 'Cliente.class.php';
 require_once 'Endereco.class.php';
 require_once 'Venda.class.php';
 require_once 'Funcionario.class.php';
+require_once 'Orcamento.class.php';
+require_once 'Servico.class.php';
 
 
 class Pagina
@@ -61,4 +63,7 @@ class Pagina
 
 $pagina = new Pagina();
 
-var_dump(Pessoa::validarCPF('20842099000'));
+
+$o = new Orcamento;
+$o->addItem(new Servico('Chave',50));
+$o->addItem(new Produto('caneta',50,10));

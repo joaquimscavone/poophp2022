@@ -1,8 +1,9 @@
 <?php
 
 require_once 'Caracteristica.class.php';
+require_once 'Service.interface.php';
 
-class Produto{
+class Produto implements Service{
     private $descricao;
     private $valor;
     protected $estoque;
@@ -86,4 +87,10 @@ class Produto{
     function addCaracteristica($nome, $valor){
         $this->caracteristicas[] = new Caracteristica($nome, $valor);
     }
+
+    public function getPreco()
+    {
+        return $this->valor;
+    }
+    
 }
